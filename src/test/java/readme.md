@@ -1,0 +1,1 @@
+# This file only exists because folder does not exist otherwise
