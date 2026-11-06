@@ -19,9 +19,9 @@ public class HorrorMovieStorage implements MovieStorage<HorrorMovie> {
         this.mapper = new ObjectMapper();
 
         // Should create the folder and resources directory so in case it does not exist
-        if (!Files.isDirectory(filePath)) {
+        if (filePath.getParent() != null) {
             try {
-                Files.createDirectories(filePath);
+                Files.createDirectories(filePath.getParent());
             }
             catch (IOException e) {
                 throw new RuntimeException(e);
