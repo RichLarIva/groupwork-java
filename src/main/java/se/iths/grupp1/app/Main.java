@@ -1,8 +1,10 @@
 package se.iths.grupp1.app;
 
 import se.iths.grupp1.app.model.ActionMovie;
+import se.iths.grupp1.app.model.DramaMovie;
 import se.iths.grupp1.app.model.HorrorMovie;
 import se.iths.grupp1.app.storage.ActionMovieStorage;
+import se.iths.grupp1.app.storage.DramaMovieStorage;
 import se.iths.grupp1.app.storage.HorrorMovieStorage;
 import se.iths.grupp1.app.storage.MovieStorage;
 
@@ -13,6 +15,7 @@ public class Main {
     static void main(String[] args) throws IOException {
 
         MovieStorage<ActionMovie> actionStorage = new ActionMovieStorage(Path.of("data", "action-movies.json"));
+        MovieStorage<DramaMovie> dramaStorage = new DramaMovieStorage(Path.of("data","drama-movies.json"));
         Path horrorMovieFilePath = Path.of("data", "horror-movies.json");
         MovieStorage<HorrorMovie> horrorMovieMovieStorage = new HorrorMovieStorage(horrorMovieFilePath);
 
@@ -39,5 +42,19 @@ public class Main {
         horrorMovieMovieStorage.save(horrorMovie2);
         horrorMovieMovieStorage.save(horrorMovie3);
         horrorMovieMovieStorage.save(horrorMovie4);
+
+        DramaMovie dramaMovie1 = new DramaMovie(301,"The Godfather");
+        DramaMovie dramaMovie2 = new DramaMovie(302, "The Shawshank Redemption");
+        DramaMovie dramaMovie3 = new DramaMovie(303, "Forrest Gump");
+        DramaMovie dramaMovie4 = new DramaMovie(304, "The Green Mile");
+        DramaMovie dramaMovie5 = new DramaMovie(305, "Schindler`s List");
+
+        dramaStorage.save(dramaMovie1);
+        dramaStorage.save(dramaMovie2);
+        dramaStorage.save(dramaMovie3);
+        dramaStorage.save(dramaMovie4);
+        dramaStorage.save(dramaMovie5);
+
+
     }
 }
