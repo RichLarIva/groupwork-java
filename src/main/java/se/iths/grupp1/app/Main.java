@@ -1,12 +1,10 @@
 package se.iths.grupp1.app;
 
 import se.iths.grupp1.app.model.ActionMovie;
+import se.iths.grupp1.app.model.ComedyMovie;
 import se.iths.grupp1.app.model.DramaMovie;
 import se.iths.grupp1.app.model.HorrorMovie;
-import se.iths.grupp1.app.storage.ActionMovieStorage;
-import se.iths.grupp1.app.storage.DramaMovieStorage;
-import se.iths.grupp1.app.storage.HorrorMovieStorage;
-import se.iths.grupp1.app.storage.MovieStorage;
+import se.iths.grupp1.app.storage.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -15,9 +13,10 @@ public class Main {
     static void main(String[] args) throws IOException {
 
         MovieStorage<ActionMovie> actionStorage = new ActionMovieStorage(Path.of("data", "action-movies.json"));
-        MovieStorage<DramaMovie> dramaStorage = new DramaMovieStorage(Path.of("data","drama-movies.json"));
+        MovieStorage<DramaMovie> dramaStorage = new DramaMovieStorage(Path.of("data", "drama-movies.json"));
         Path horrorMovieFilePath = Path.of("data", "horror-movies.json");
         MovieStorage<HorrorMovie> horrorMovieMovieStorage = new HorrorMovieStorage(horrorMovieFilePath);
+        MovieStorage<ComedyMovie> comedyStorage = new ComedyMovieStorage(Path.of("data", "comedy-movies.json"));
 
         ActionMovie actionMovie1 = new ActionMovie(95016, "Die Hard");
         ActionMovie actionMovie2 = new ActionMovie(133093, "The Matrix");
@@ -43,7 +42,7 @@ public class Main {
         horrorMovieMovieStorage.save(horrorMovie3);
         horrorMovieMovieStorage.save(horrorMovie4);
 
-        DramaMovie dramaMovie1 = new DramaMovie(301,"The Godfather");
+        DramaMovie dramaMovie1 = new DramaMovie(301, "The Godfather");
         DramaMovie dramaMovie2 = new DramaMovie(302, "The Shawshank Redemption");
         DramaMovie dramaMovie3 = new DramaMovie(303, "Forrest Gump");
         DramaMovie dramaMovie4 = new DramaMovie(304, "The Green Mile");
@@ -55,6 +54,17 @@ public class Main {
         dramaStorage.save(dramaMovie4);
         dramaStorage.save(dramaMovie5);
 
+        ComedyMovie comedyMovie1 = new ComedyMovie(401, "Rush Hour");
+        ComedyMovie comedyMovie2 = new ComedyMovie(402, "White Chicks");
+        ComedyMovie comedyMovie3 = new ComedyMovie(403, "The Hangover");
+        ComedyMovie comedyMovie4 = new ComedyMovie(404, "The Other Guys");
+        ComedyMovie comedyMovie5 = new ComedyMovie(405, "Superbad");
+
+        comedyStorage.save(comedyMovie1);
+        comedyStorage.save(comedyMovie2);
+        comedyStorage.save(comedyMovie3);
+        comedyStorage.save(comedyMovie4);
+        comedyStorage.save(comedyMovie5);
 
     }
 }
